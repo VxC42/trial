@@ -1,0 +1,40 @@
+<div class="container">
+     <nav>
+          <span class="title">Bucket List</span>
+          <a routerLink="/dashboard" class="link">Home</a>
+          <a routerLink="" class="link">Logout</a>
+     </nav>
+     <h2>{{pageUser.name}}'s Bucket List</h2>
+
+     <p>Done</p>
+     <ul>
+          <span *ngFor="let item of items">
+               <li *ngIf="pageUser.name == item.user && item.completed===true">
+                    <input *ngIf="item.completed===true && user.name == item.user" type="checkbox" name="completed" ng-model="item.completed" (click)="checkClick(item)" value ="item._id" id="box" checked />
+                    {{item.user}} | {{item.title}} - {{item.description}}
+                    <span class="date">created on {{item.createdAt | date}}</span>
+
+
+               </li>
+          </span>
+
+
+
+     </ul>
+
+
+     <p>Pending</p>
+     <ul>
+          <span *ngFor="let item of items">
+               <li *ngIf="pageUser.name == item.user && item.completed===false">
+                    <input *ngIf="item.completed===true && user.name == item.user" type="checkbox" name="completed" ng-model="item.completed" (click)="checkClick(item)" value ="item._id" id="box" checked />
+                    <input *ngIf="item.completed===false && user.name == item.user" type="checkbox" name="completed" ng-model="item.completed" (click)="checkClick(item)" value ="item._id" id="box" />
+                    {{item.user}} | {{item.title}} - {{item.description}}
+                    <span class="date"> created on {{item.createdAt | date}}</span>
+
+
+               </li>
+          </span>
+     </ul>
+
+</div>

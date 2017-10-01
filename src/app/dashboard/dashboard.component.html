@@ -1,0 +1,34 @@
+<div class="container">
+     <nav>
+          <span class="title">Bucket List</span>
+          <a routerLink="/dashboard" class="link">Home</a>
+          <a routerLink="" class="link">Logout</a>
+     </nav>
+     <h2>Welcome {{user.name}}!</h2>
+     <app-new-item (dashEventEmitter)="refreshDashEmit($event)"></app-new-item>
+
+     <p>Before I die I want to...</p>
+     <ul>
+          <!-- for all items in database -->
+          <li *ngFor="let item of items">
+               <input *ngIf="item.completed===true && user.name == item.user" type="checkbox" name="completed" ng-model="item.completed" (change)="checkClick(item)" value ="item._id" id="box" checked />
+               <input *ngIf="item.completed===false && user.name == item.user" type="checkbox" name="completed" ng-model="item.completed" (click)="checkClick(item)" value ="item._id" id="box" />
+                    {{item.user}} | {{item.title}} - {{item.description}}
+                    <span class="date">created on {{item.createdAt | date}}</span>
+
+
+          </li>
+
+
+
+
+     </ul>
+
+     <p>List of other users (click to view profile):</p>
+     <ul>
+          <!-- for all users that is not the current user -->
+          <li *ngFor="let userL of users"> <a routerLink="/user/{{userL._id}}"> <span *ngIf="user.name===userL.name">{{userL.name}} (you)</span>
+          <span *ngIf="user.name!=userL.name">{{userL.name}}</span></a></li>
+     </ul>
+
+</div>

@@ -1,0 +1,11 @@
+<h1>BUCKET LIST</h1>
+<div>
+     <form #form='ngForm'>
+          <input type="text" name="username" required minlength="2" [(ngModel)]="user.name" #username='ngModel' placeholder="Enter your name" id="nameInput">
+
+          <input type="submit" [routerLink]="['/dashboard']" (click)="onClick()" type=submit value="Login" [disabled]="!form.valid" id="nameButton">
+     </form>
+     <span *ngIf="username.errors && username.dirty">
+          2 Character Minimum
+     </span>
+</div>

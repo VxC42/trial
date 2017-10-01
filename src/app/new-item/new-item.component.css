@@ -1,0 +1,9 @@
+select{
+     padding:2px;
+}
+#formTitle{
+     width: 120px;
+}
+#formDescription{
+     width: 200px;
+}

@@ -1,0 +1,15 @@
+
+     <form #form='ngForm'>
+     <input type="text" name="title" placeholder="Title" required minlength="5" [(ngModel)]="item.title" #title='ngModel' id="formTitle">
+     <input type="text" name="description" placeholder="Description" required minlength="10" [(ngModel)]="item.description" #description='ngModel' id="formDescription">
+     <select name="tagUser" [(ngModel)]="taggedUser" id="formSelect">
+          <option selected="selected"></option>
+          <option *ngFor="let user of users" value="{{user.name}}">
+                    {{user.name}}
+          </option>
+     </select>
+     <input (click)="onSend($event); form.reset()" type="submit" value="Add to List" [disabled]="!form.valid" id="formButton">
+     </form>
+
+<span *ngIf="!title.valid && title.dirty">Must be at least 5 characters</span>
+<span *ngIf="!description.valid && description.dirty">Must be at least 10 characters</span>
