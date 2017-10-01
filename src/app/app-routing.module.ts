@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { NewItemComponent } from "./new-item/new-item.component";
 import { UserComponent } from "./user/user.component";
-// import { AddAnswerComponent } from "./add-answer/add-answer.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LoginComponent },
