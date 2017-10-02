@@ -20,11 +20,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick() {
-    this._item.login(this.user);
-    this.person.name = this.user.name;
-    if(!this._user.checkUser(this.person.name)){
-         this._user.createUser(this.person);
-    };
-  }
+     newUser(person){
+          this._user.createUser(person);
+     }
+
+     onClick() {
+          this._item.login(this.user);
+          this.person.name = this.user.name;
+          this.newUser(this.user)
+     }
 }

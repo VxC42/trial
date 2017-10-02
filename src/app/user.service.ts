@@ -26,12 +26,13 @@ export class UserService {
      createUser(name) {
           console.log("creating user ", name);
           this._http.post('/createUser', name)
-          .map(data => data.json());
+          .map(data => data.json())
+          .toPromise();
      }
 
-     checkUser(user){
+     findUser(user){
           console.log("checking for user");
-          this._http.get('/checkUser', user)
+          return this._http.get('/checkUser', user)
           .map(data=> data.json());
      }
 

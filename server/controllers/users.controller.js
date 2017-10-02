@@ -35,6 +35,7 @@ module.exports = {
 
     createUser(req, res) {
         let newUser = new User(req.body);
+        console.log("creating user ", req.body);
         newUser.save()
             .then( () => {
                 console.log('successfully created a user');
