@@ -1,4 +1,6 @@
-# Public
+APP IP ADDRESS: http://18.220.93.148
+
+# BUCKET LIST
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
 
